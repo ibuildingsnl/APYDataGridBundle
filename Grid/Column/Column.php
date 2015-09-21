@@ -12,6 +12,7 @@
 
 namespace APY\DataGridBundle\Grid\Column;
 
+use APY\DataGridBundle\Grid\Row;
 use Symfony\Component\Security\Core\SecurityContextInterface;
 use APY\DataGridBundle\Grid\Filter;
 
@@ -180,7 +181,7 @@ abstract class Column
      * @param $router
      * @return string
      */
-    public function renderCell($value, $row, $router)
+    public function renderCell($value, Row $row, $router)
     {
         if (is_callable($this->callback)) {
             return call_user_func($this->callback, $value, $row, $router);

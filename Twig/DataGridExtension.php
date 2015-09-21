@@ -13,6 +13,8 @@
 namespace APY\DataGridBundle\Twig;
 
 use APY\DataGridBundle\Grid\Grid;
+use APY\DataGridBundle\Grid\Mapping\Column;
+use APY\DataGridBundle\Grid\Row;
 use Pagerfanta\Pagerfanta;
 use Pagerfanta\Adapter\NullAdapter;
 use Symfony\Component\Routing\RouterInterface;
@@ -180,9 +182,9 @@ class DataGridExtension extends \Twig_Extension
      *
      * @return string
      */
-    public function getGridCell($column, $row, $grid)
+    public function getGridCell(Column $column, Row $row, Grid $grid)
     {
-        $value = $column->renderCell($row->getField($column->getId()), $row, $this->router);
+        $value = $column->renderCell($row->getField($column->getField()), $row, $this->router);
 
         $id = $this->names[$grid->getHash()];
 
