@@ -181,7 +181,7 @@ abstract class Column
      * @param $router
      * @return string
      */
-    public function renderCell($value, Row $row, $router)
+    public function renderCell($value, $row, $router)
     {
         if (is_callable($this->callback)) {
             return call_user_func($this->callback, $value, $row, $router);
